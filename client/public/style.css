@@ -50,27 +50,42 @@ main {
 
 .create-tweet button {
     font-family: inherit;
+    border: none;
     border-radius: 0.3em;
-    max-width: 100px;
+    max-width: 250px;
     background-color: lightblue;
     font-weight: bold;
     text-align: center;
     font-size: 1rem;
     padding: 1.25em 1em;
     cursor: pointer;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
+.create-tweet button:hover {
+    background-color: var(--clr-blue);
+}
 
-.tweet-content {
-    margin: 0.25em auto;
-    width: min(100%, 600px);
+.tweet-container {
+    width: min(80%, 600px);
+    margin: 0 auto;
     text-align: left;
-    padding: 20px;
+    padding: 10px;
 }
 
 .tweet {
-    width: min(90%, 600px);
     text-align: left;
-    padding: 20px;
+    margin: 10 auto;
+    padding: 10px;
 }
+
+.tweet-content {
+    width: min(100%, 600px);
+    text-align: left;
+    padding: 1em;
+}
+
+
 
