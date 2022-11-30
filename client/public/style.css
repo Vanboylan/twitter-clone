@@ -1,91 +1,119 @@
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --clr-blue: #244cfd;
-    --clr-dark-blue: #0227ca;
-    --clr-tweet-bg: #e6e6e6;
+  --clr-blue: #244cfd;
+  --clr-dark-blue: #0227ca;
+  --clr-tweet-bg: #e6e6e6;
 }
 
-body {font-family: 'Overpass', sans-serif;
-    font-size: 18px;
+body {
+  font-family: "Overpass", sans-serif;
+  font-size: 18px;
 }
 
 header {
-    width: min(90%, 860px);
-    margin: 2em auto;
-    text-align: center;
+  width: min(90%, 860px);
+  margin: 2em auto;
+  text-align: center;
 }
 
 main {
-    width: min(90%, 860px);
-    margin: 5em auto;
-    text-align: center;
+  width: min(90%, 860px);
+  margin: 5em auto;
+  text-align: center;
 }
 
 .create-tweet {
-    width: min(100%, 600px);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
+  width: min(100%, 600px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .create-tweet input {
-    padding: 20px;
-    font-family: inherit;
-    font-size: 1rem;
+  padding: 20px;
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 .create-tweet textarea {
-    font-family: inherit;
-    padding: 20px;
-    height: 200px;
-    resize: vertical;
+  font-family: inherit;
+  padding: 20px;
+  height: 200px;
+  resize: vertical;
 }
 
 .create-tweet button {
-    font-family: inherit;
-    border: none;
-    border-radius: 0.3em;
-    max-width: 250px;
-    background-color: lightblue;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1rem;
-    padding: 1.25em 1em;
-    cursor: pointer;
-    margin: 0 auto;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
+  font-family: inherit;
+  border: none;
+  border-radius: 0.3em;
+  max-width: 250px;
+  background-color: lightblue;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.25em 1em;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
 }
 
 .create-tweet button:hover {
-    background-color: var(--clr-blue);
+  background-color: var(--clr-blue);
 }
 
 .tweet-container {
-    width: min(80%, 600px);
-    margin: 0 auto;
-    text-align: left;
-    padding: 10px;
+  width: min(80%, 600px);
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+  display: grid;
 }
 
 .tweet {
-    text-align: left;
-    margin: 10 auto;
-    padding: 10px;
+  text-align: left;
+  margin: 10 auto;
+  padding: 10px;
+  gap: 20px;
+}
+
+.tweet h3 {
+  cursor: pointer;
+  padding: 0.5em;
+  margin-bottom: 0.1em;
 }
 
 .tweet-content {
-    width: min(100%, 600px);
-    text-align: left;
-    padding: 1em;
+  background-color: beige;
+  border-radius: 1em;
+  width: min(100%, 600px);
+  text-align: left;
+  padding: 1em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
+.tweet-content .date {
+  display: block;
+  text-align: right;
+  margin-left: auto;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
 
+.tweet-content .hashtag-link {
+  color: blue;
+  cursor: pointer;
+}
 
+.tweet-content .userlink {
+  color: blue;
+  cursor: pointer;
+}
