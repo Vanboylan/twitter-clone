@@ -1,0 +1,76 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-blue: #244cfd;
+    --clr-dark-blue: #0227ca;
+    --clr-tweet-bg: #e6e6e6;
+}
+
+body {font-family: 'Overpass', sans-serif;
+    font-size: 18px;
+}
+
+header {
+    width: min(90%, 860px);
+    margin: 2em auto;
+    text-align: center;
+}
+
+main {
+    width: min(90%, 860px);
+    margin: 5em auto;
+    text-align: center;
+}
+
+.create-tweet {
+    width: min(100%, 600px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.create-tweet input {
+    padding: 20px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.create-tweet textarea {
+    font-family: inherit;
+    padding: 20px;
+    height: 200px;
+    resize: vertical;
+}
+
+.create-tweet button {
+    font-family: inherit;
+    border-radius: 0.3em;
+    max-width: 100px;
+    background-color: lightblue;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.25em 1em;
+    cursor: pointer;
+}
+
+
+.tweet-content {
+    margin: 0.25em auto;
+    width: min(100%, 600px);
+    text-align: left;
+    padding: 20px;
+}
+
+.tweet {
+    width: min(90%, 600px);
+    text-align: left;
+    padding: 20px;
+}
+
