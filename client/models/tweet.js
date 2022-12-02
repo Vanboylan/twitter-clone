@@ -13,8 +13,9 @@ const TweetSchema = new mongoose.Schema(
       required: true,
     },
     tags: [String],
-    likes: Array,
-    retweets: Array,
+    likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    retweets: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     photo: {
       data: Buffer,
       contentType: String,
