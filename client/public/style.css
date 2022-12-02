@@ -117,3 +117,46 @@ main {
   color: blue;
   cursor: pointer;
 }
+
+.login-form {
+  font-family: inherit;
+  width: min(100%, 600px);
+  
+}
+
+.login-form input{
+  font-family: inherit;
+}
+
+.index-options {
+  width: min(100%, 600px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.index-options .button{
+  font-family: inherit;
+  border: none;
+  border-radius: 0.3em;
+  max-width: 250px;
+  background-color: lightblue;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.25em 1em;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+}
+
+.index-options .button:hover {
+  background-color: var(--clr-blue);
+}
+
