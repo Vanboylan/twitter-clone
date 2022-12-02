@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const Tweet = require("../client/models/tweet");
+const session = require("express-session");
 require("dotenv").config();
 
 app = express();
@@ -30,23 +32,17 @@ mongoose.connect(
   }
 );
 
-//DB Schema
-const TweetSchema = new mongoose.Schema(
-  {
-    username: {
-      type: String,
-      required: true,
+app.use(
+  session({
+    key: "user_sid",
+    secret: "super_secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 600000,
     },
-    content: {
-      type: String,
-      required: true,
-    },
-    tags: [String],
-  },
-  { timestamps: true }
+  })
 );
-
-const Tweet = mongoose.model("Tweet", TweetSchema);
 
 //helper
 function isValidTweet(body) {
