@@ -66,6 +66,24 @@ app.get("/", (req, res) => {
   res.json({ message: "Hi" });
 });
 
+app.get("/tweet", async (req, res) => {
+  let username = req.query.name;
+  let tag = "#" + req.query.tags;
+  let tweets;
+  try {
+    if (tag) {
+      tweets = await Tweet.find({ tags: tag }).exec();
+    } else if (username) {
+      tweets = await Tweet.find({ username: username }).exec();
+    } else {
+      tweets = await Tweet.find({}).exec();
+    }
+    res.json(tweets);
+  } catch (err) {
+    res.json({ err });
+  }
+});
+
 app.post("/tweet", async (req, res) => {
   if (isValidTweet(req.body)) {
     let username = req.body.username.toString();
