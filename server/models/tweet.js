@@ -11,6 +11,7 @@ const TweetSchema = new mongoose.Schema(
     content: {
       type: String,
       required: true,
+      index: true,
     },
     tags: [String],
     likes: [{ type: Schema.Types.ObjectId, ref: "User" }],

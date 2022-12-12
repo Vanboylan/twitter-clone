@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const CommentSchema = new mongoose.Schema(
   {
+    user: { type: Schema.Types.ObjectId, ref: "User" },
     content: String,
     tags: Array,
     likes: [{ type: Schema.Types.ObjectId, ref: "User" }],

@@ -8,23 +8,23 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../public/style.css">
+        <link rel="stylesheet" href="../../client/public/style.css">
     </head>
 <body>
-    <button margin="right">Sign Up</button>
-        <header><h1><a href="#home" id="twitter-logo">A twitter rip-off</a></h1></header>
+    <button margin="right"><a href="/users/new">Sign Up</a></button>
+        <header><h1><a href="/" id="twitter-logo">A twitter rip-off</a></h1></header>
        
         <main>
             
-            <form class="login-form">
+            <form class="login-form" action="/sessions" method="post">
                 <label for="username">Username or email:</label>
                 <input type="text" id="username" name="username" placeholder="Username or Email" required>
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" placeholder="password"> 
+                <input type="text" id="password" placeholder="password"> 
                 <br><br>
                 <input type="checkbox" id="display-password" onclick="showPassword()">Show password
-
+<input class='input-button' id="submit" type="submit" value="submit">
                 <script> function showPassword() {
                     const password = document.getElementById("password");
                     if (password.type === "password") {
@@ -39,7 +39,7 @@
             
         </main>
         
-        <script src="../public/index.js">
+        <script src="../../client/public/index.js">
         </script>
         
     </body>
