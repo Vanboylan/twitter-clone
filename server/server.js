@@ -17,14 +17,14 @@ const sessionsRouter = require("./routes/sessions");
 const app = express();
 
 //setup middleware
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
 app.use(cors());
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
+app.use(express.static(path.join(__dirname, "public")));
 
 //PORT setup
 const PORT = process.env.PORT || 3000;
