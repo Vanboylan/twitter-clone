@@ -6,12 +6,8 @@ const SessionsController = {
   },
   Create: (req, res) => {
     console.log("Login attempted");
-    const nameInput = req.body.username;
+    const nameInput = req.body.username.toLowerCase();
     const password = req.body.password;
-    console.log(req.body);
-    console.log(
-      `this is the password through sessions controller: ${password}`
-    );
     if (nameInput.includes("@")) {
       User.findOne({ email: nameInput }).then((user) => {
         if (!user) {

@@ -8,7 +8,10 @@ appDir = appDir.replace("bin", "").replace("controllers", "");
 const UsersController = {
   Create: (req, res) => {
     const user = new User(req.body);
-    console.log(req.body);
+    const username = req.body.username.toLowerCase();
+    const email = req.body.email.toLowerCase();
+    user.username = username;
+    user.email = email;
     user.save((err) => {
       if (err) {
         throw err;
