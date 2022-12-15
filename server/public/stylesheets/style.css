@@ -15,6 +15,7 @@
 body {
   font-family: "Overpass", sans-serif;
   font-size: 18px;
+  background-color: #DBF9FC;
 }
 
 header {
@@ -121,11 +122,34 @@ main {
 .login-form {
   font-family: inherit;
   width: min(100%, 600px);
-  
+  display: grid;
+  text-align: center;
+  width: min(100%, 600px);
+  margin: auto auto;
+  column-gap: 0;
+  grid-template-columns: auto auto;
+  justify-content: auto;
+  grid-template-rows: 50px 50px;
 }
 
 .login-form input{
   font-family: inherit;
+  height: 30px;
+}
+
+.login-form .checkbox{
+  max-height: 20px;
+  max-width: 20px;
+  align-self: center;
+  justify-self: center;
+
+}
+
+.signup-form .checkbox{
+  max-height: 20px;
+  max-width: 20px;
+  align-self: center;
+  justify-self: center;
 }
 
 .login-form .input-button{
@@ -136,15 +160,13 @@ main {
   background-color: lightblue;
   font-weight: bold;
   text-align: center;
-  font-size: 1rem;
-  padding: 1.25em 1em;
+  font-size: 0.8rem;
+  padding: 0.5em 0.3em;
   cursor: pointer;
-  margin: 0 auto;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
-  display: inline-block;
-  top: 50%;
-  left: 50%;
+  align-self: center;
+  justify-self: center;
 }
 
 .login-form .input-button:hover{
@@ -162,7 +184,7 @@ main {
   font-size: 0.6rem;
   padding: 0.8em 0.5em;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 10px 10px;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
   top: 50%;
@@ -223,7 +245,7 @@ main {
   font-size: 0.6rem;
   padding: 0.8em 0.5em;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 10px 10px;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
   top: 50%;
@@ -237,14 +259,17 @@ main {
 .index-options {
   width: min(100%, 600px);
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 10px;
   flex-direction: column;
   gap: 20px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .index-options .button{
   font-family: inherit;
+  display: grid;
   border: none;
   border-radius: 0.3em;
   max-width: 250px;
@@ -257,7 +282,6 @@ main {
   margin: 0 auto;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
-  display: inline-block;
   top: 50%;
   left: 50%;
 }

@@ -12,7 +12,8 @@
     </head>
 <body>
     <button class="signup-button" margin="right"><a href="/users/new">Sign Up</a></button>
-        <header><h1><a href="/" id="twitter-logo">A twitter rip-off</a></h1></header>
+        <header><h1><a href="/" id="twitter-logo">Maniteams</a></h1></header>
+            <header><h3><a href="/" id="byline">Keeping remote work social</a> </h3></header>
        
         <main>
             
@@ -21,9 +22,10 @@
                 <input type="text" id="username" name="username" placeholder="Username or Email" required>
 
                 <label for="password">Password:</label>
-                <input type="text" id="password" name="password" placeholder="password"> 
-                <br><br>
-                <input type="checkbox" id="display-password" onclick="showPassword()">Show password
+                <input type="password" id="password" name="password" placeholder="password"> 
+                <label for="checkbox">Show password</label>
+                <input class="checkbox" type="checkbox" id="display-password" onclick="showPassword()">
+                <label for="input-button"> </label>
 <input class='input-button' id="submit" type="submit" value="submit">
                 <script> function showPassword() {
                     const password = document.getElementById("password");

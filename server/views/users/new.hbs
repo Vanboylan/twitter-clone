@@ -12,39 +12,45 @@
     </head>
 <body>
     <button class="signin-button" margin="right"><a href='/sessions/new'>Sign In</a></button>
-        <header><h1><a href="/" id="twitter-logo">A twitter rip-off</a></h1></header>
-       
+    <header><h1><a href="/" id="twitter-logo">Maniteams</a></h1></header>
+    <header><h3><a href="/" id="byline">Keeping remote work social</a> </h3></header>
         <main>
             <form class="signup-form" action="/users" method="post">
-                <label class="griditem1" for="username">Username:</label>
-                  <input class="griditem2" type="input-text" id="username" name="username" placeholder="Username" required>
-                <label class="griditem3" for="email">Email address:</label>
-                  <input class="griditem4" type="input-text" id="email" name="email" placeholder="Email address" required>
-                <label class="griditem5" for="firstname">First Name:</label>
-                  <input class="griditem6" type="input-text" id="firstname" name="firstname" placeholder="First name" required>
-                <label class="griditem7" for="lastname">Last Name:</label>
-                  <input class="griditem8" type="input-text" id="lastname" name="lastname" placeholder="Last name" required>
-                <label class="griditem9" for="birthday">Birthday:</label>
-                  <input class="griditem10" type="date" id="birthday" name="birthday">
-                <label class="griditem11" for="password">Password:</label>
-                  <input class="griditem12" type="password" id="password" name="password" placeholder="password"> 
-                <label class="griditem13" for="passwordcheck">Repeat password:</label>
-                  <input class="griditem14" type="password" id="passwordcheck" placeholder="Repeat password">
-                <label class="griditem15" for="checkbox">Show password</label>
-                  <input class="griditem16" type="checkbox" id="display-password" onclick="showPassword()">
-                <input class="input-button" id="submit" type="submit" value="submit">
+                <label for="username">Username:</label>
+                  <input type="input-text" id="username" name="username" placeholder="Username" required>
+                <label for="email">Email address:</label>
+                  <input type="input-text" id="email" name="email" placeholder="Email address" required>
+                <label for="firstname">First Name:</label>
+                  <input type="input-text" id="firstname" name="firstname" placeholder="First name" required>
+                <label for="lastname">Last Name:</label>
+                  <input type="input-text" id="lastname" name="lastname" placeholder="Last name" required>
+                <label for="birthday">Birthday:</label>
+                  <input type="date" id="birthday" name="birthday" required>
+                <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" placeholder="password" required> 
+                <label for="passwordcheck">Repeat password:</label>
+                  <input type="password" id="passwordcheck" placeholder="Repeat password" oninput="matchPassword(this)" required>
+                <label for="checkbox">Show password</label>
+                  <input class="checkbox" type="checkbox" id="display-password" onclick="showPassword()">
+                                  
                 <script> function showPassword() {
                     const password = document.getElementById("password");
                     if (password.type === "password") {
-                      password.type = "input-text";
+                      passwordcheck.type="text";
+                      password.type = "text";
                     } else {
                       password.type = "password";
+                      passwordcheck.type="password";
                     }
                   }
-                  function matchPassword() {
-                    return document.getElementById("password") === document.getElementById("passwordcheck")
+                  function matchPassword(input) {
+                    if (document.getElementById("password").value != input.value)
+                    {input.setCustomValidity('Passwords must be matching')}
+                    else {input.setCustomValidity('')}
                   }
                 </script>
+                <label for="input-button"> </label>
+                <input class="input-button" id="submit" type="submit" value="submit">
             </form>
         </main>
         <script src="/index.js">
