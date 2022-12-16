@@ -11,48 +11,28 @@
         <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
     <body>
-        <header><h1>A twitter rip-off</h1></header>
+        <header><h1>Maniteams</h1></header>
         <main>
-            <form class="create-tweet">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Enter name" required>
-                <label for="">Tweet:</label>
-                <textarea name="content" id="content" cols="30" rows="10" maxlength="140" placeholder="Tweet content here" required></textarea>
-                <button>Send</button>
+            <form class="create-tweet" action="/tweets" method="post">
+                <label for="">Post:</label>
+                <textarea name="content" id="content" cols="30" rows="10" maxlength="140" placeholder="Post content here" required></textarea>
+                <input type="hidden" id="user" value={{user._id}} />
+                <input class="button" type="submit" value="send">
             </form>
         </main>
             <div class="tweet-container">
-                <div class="tweet">
-                    <h3>TestName</h3>
-                    <div class="tweet-content">
-                        <p>
-                            This is a tester
-                        </p>
-                        <span class="date">30/11/2022</span>
+                {{#each tweets}}
+                    <div class="tweet">
+                        <h3>{{this.user.username}}</h3>
+                        <div class="tweet-content">
+                            <p>
+                              {{this.content}}
+                            </p>
+                            <span class="date">{{this.createdAt}}</span>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="tweet">
-                    <h3>TestName</h3>
-                    <div class="tweet-content">
-                        <p>
-                            This is a tester tweet. <span class="hashtag-link">#blessed</span>
-                        </p>
-                        <span class="date">30/11/2022</span>
-                    </div>
-                </div>
-            
-                <div class="tweet">
-                    <h3>TestName</h3>
-                    <div class="tweet-content">
-                        <p>
-                            This is a tester tweet. Wishing <span class='userlink'>@testuser2</span> were here!
-                        </p>
-                        <span class="date">30/11/2022</span>
-                    </div>
-                </div>
+                {{/each}}
             </div>
-
         <script src="/index.js"></script>
     </body>
 </html>

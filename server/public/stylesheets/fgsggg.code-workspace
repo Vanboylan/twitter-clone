@@ -1,0 +1,26 @@
+{
+  "folders": [
+	{
+		"path": "../../../../personalproject"
+	},
+	{
+		"path": "../../.."
+	},
+	{
+		"path": "../../../../js-wk-3/acebook"
+	},
+	{
+		"path": "../../../../9d86e67b-46e5-4d0c-8186-f35c9f3c06f6"
+	},
+	{
+		"path": "../../../../65a1f9ca-14a1-4589-9c9e-a99fc917d282"
+	},
+	{
+		"path": "../../../../94e48f05-6bd4-4d03-8716-62953a81cd4c"
+	}
+],
+  "settings": {
+    "editor.formatOnSave": true,
+    "liveServer.settings.multiRootWorkspaceName": "twitter-clone"
+  }
+}

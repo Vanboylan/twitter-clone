@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const TweetSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
-      required: true,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
     content: {
       type: String,

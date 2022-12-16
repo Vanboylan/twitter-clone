@@ -15,7 +15,7 @@
 body {
   font-family: "Overpass", sans-serif;
   font-size: 18px;
-  background-color: #DBF9FC;
+    background-color: #DBF9FC;
 }
 
 header {
@@ -47,14 +47,15 @@ main {
 .create-tweet textarea {
   font-family: inherit;
   padding: 20px;
-  height: 200px;
-  resize: vertical;
+  height: 100px;
+  border-radius: 50px;
+  resize: none;
 }
 
-.create-tweet button {
+.create-tweet .button {
   font-family: inherit;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 5rem;
   max-width: 250px;
   background-color: lightblue;
   font-weight: bold;
@@ -67,7 +68,7 @@ main {
   text-transform: uppercase;
 }
 
-.create-tweet button:hover {
+.create-tweet .button:hover {
   background-color: var(--clr-blue);
 }
 
@@ -155,7 +156,7 @@ main {
 .login-form .input-button{
   font-family: inherit;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 5rem;
   max-width: 250px;
   background-color: lightblue;
   font-weight: bold;
@@ -176,7 +177,7 @@ main {
 .signup-button{
   font-family: inherit;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 5rem;
   max-width: 50px;
   background-color: lightblue;
   font-weight: bold;
@@ -216,7 +217,7 @@ main {
 .signup-form .input-button{
   font-family: inherit;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 5rem;
   max-width: 250px;
   background-color: lightblue;
   font-weight: bold;
@@ -237,7 +238,7 @@ main {
 .signin-button{
   font-family: inherit;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 5rem;
   max-width: 50px;
   background-color: lightblue;
   font-weight: bold;
@@ -271,13 +272,14 @@ main {
   font-family: inherit;
   display: grid;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 5rem;
   max-width: 250px;
+  max-height: 40px;
   background-color: lightblue;
   font-weight: bold;
   text-align: center;
   font-size: 1rem;
-  padding: 1.25em 1em;
+  padding: 10px 10px;
   cursor: pointer;
   margin: 0 auto;
   transition: background-color 0.3s ease;

@@ -28,6 +28,8 @@ const TweetsController = {
   Create: (req, res) => {
     let session = req.session.user;
     const tweet = new Tweet(req.body);
+    tweet.user = session._id;
+    console.log(tweet);
     tweet.save((err) => {
       if (err) {
         throw err;
