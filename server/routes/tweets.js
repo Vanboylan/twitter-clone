@@ -6,6 +6,7 @@ const TweetsController = require("../controllers/tweets");
 router.get("/", TweetsController.Index);
 router.post("/", TweetsController.Create);
 router.get("/new", TweetsController.New);
+router.get("/:id", TweetsController.View);
 router.post("/:id", TweetsController.Like);
 router.post("/comments/:id", TweetsController.Comment);
 /*

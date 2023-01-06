@@ -13,27 +13,19 @@
     <body>
         <header><h1>Maniteams</h1></header>
         <main>
-            <form class="create-tweet" action="/tweets" method="post">
-                <label for="">Post:</label>
-                <textarea name="content" id="content" cols="30" rows="10" maxlength="140" placeholder="Post content here" required></textarea>
-                <input type="hidden" id="user" value={{user._id}} />
-                <input class="button" type="submit" value="send">
-                </form>
-        </main>
-            <div class="tweet-container">
-                {{#each tweets}}
-                    <div class="tweet" id="tweet">
+           <div class="tweet" id="tweet">
                         <h3>{{this.user.username}}</h3>
                         <div class="tweet-content">
                             <p>
-                              {{this.content}}
+                              {{this.tweet.content}}
                             </p>
+                            </div>
                             <form class="create-comment" action="/tweets/comments/{{this._id}}" method="post">
                                 <input class='content' type="input-text" id="content" name="content" placeholder="Make a comment">
                                 <input class="button" type="submit" id="create-comment-button" value="submit">
                                 <input type="hidden" id="user" value={{user._id}} />
                                 </form>
-                            </div>
+                            
                             
                             <span class="date">{{this.createdAt}}</span>
                             <div class="button-container">
@@ -47,10 +39,6 @@
                                 <input class="button" type="submit" value="retweet">
                                 </form>
 
-                            </div>
-                            <div class="show-comments">
-                                <input type='button' class="button" value="Comments" onClick="toggleComments()">
-                            </div>
                             </div>
                             <div id="comments-container" style="display:none" class="comments-container">
                                 {{#each comments}}
@@ -74,21 +62,8 @@
                             {{/each}}
 
                             </div>
-                            <script>
-                                function toggleComments() {
-                                    let containerStatus = document.getElementById('comments-container');
-                                    if (containerStatus.style.display === 'none')
-                                    {containerStatus.style.display = 'block'}
-                                    else {containerStatus.style.display = 'none'}
-                                };
-                            </script>
-                        <a href="/tweets/{{this.id}}"> load more comments</a>
-                        
-                        </div>
-                       
-                    
-                {{/each}}
-            </div>
-        <script src="/index.js"></script>
-    </body>
-</html>
+                            </div>
+        </main>
+                <script src="/index.js"></script>
+        </body>
+        </html>

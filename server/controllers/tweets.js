@@ -18,7 +18,10 @@ const TweetsController = {
       });
     })
       .populate("user")
-      .populate("comments")
+      .populate({
+        path: "comments",
+        options: { limit: 10, sort: { created: -1 } },
+      })
       .populate({ path: "comments", populate: { path: "user" } });
   },
   New: (req, res) => {
@@ -74,10 +77,24 @@ const TweetsController = {
           if (err) {
             throw err;
           }
-          res.status(201).redirect.get("referer");
+          res.status(201).redirect(req.get("referer"));
         });
       });
     });
+  },
+  View: (req, res) => {
+    let session = req.session.user;
+    const id = req.params.id;
+    console.log(id);
+    Tweet.findById(id, (err, tweet) => {
+      console.log(tweet);
+      if (err) {
+        throw err;
+      }
+      res.render("tweets/:id", { user: session, tweet: tweet });
+    })
+      .populate("comments")
+      .populate({ path: "comments", populate: { path: "user" } });
   },
 };
 

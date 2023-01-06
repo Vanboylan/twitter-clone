@@ -86,46 +86,7 @@ const sessionChecker = (req, res, next) => {
     next();
   }
 };
-/*
-app.get("/", (req, res) => {
-  res.json({ message: "Hi" });
-});
 
-app.get("/tweet", async (req, res) => {
-  let username = req.query.name;
-  let tag = "#" + req.query.tags;
-  let tweets;
-  try {
-    if (tag) {
-      tweets = await Tweet.find({ tags: tag }).exec();
-    } else if (username) {
-      tweets = await Tweet.find({ username: username }).exec();
-    } else {
-      tweets = await Tweet.find({}).exec();
-    }
-    res.json(tweets);
-  } catch (err) {
-    res.json({ err });
-  }
-});
-
-app.post("/tweet", async (req, res) => {
-  if (isValidTweet(req.body)) {
-    let username = req.body.username.toString();
-    let content = req.body.content.toString();
-    let tags = tagParser(content);
-
-    let tweet = await Tweet.create({
-      username,
-      content,
-      tags,
-    });
-    res.json(tweet);
-  } else {
-    res.status(400);
-    res.json({ message: "invalid request" });
-  }
-});*/
 app.use(bodyParser.json());
 app.use("/", homeRouter);
 app.use("/users", usersRouter);
@@ -133,6 +94,8 @@ app.use("/users/:id", sessionChecker, usersRouter);
 app.use("/users/index", sessionChecker, usersRouter);
 
 app.use("/tweets", sessionChecker, tweetsRouter);
+app.use("/tweets/:id", sessionChecker, tweetsRouter);
+app.use("/tweets/comments/:id", sessionChecker, tweetsRouter);
 
 app.use("/sessions", sessionsRouter);
 
