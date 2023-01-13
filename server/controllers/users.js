@@ -40,17 +40,19 @@ const UsersController = {
     if (id === req.session.user) {
       res.render("/index");
     } else {
-      Tweet.find({ user: id }, (err, tweets) => {
+      User.findById(id, (err, user) => {
         if (err) {
           throw err;
         }
-        res.render("users/:id", { tweets: tweets.reverse(), user: id });
-      })
-        .populate("user")
-        .populate("comments")
-        .populate({ path: "comments", populate: { path: "user" } })
-        .populate("followers")
-        .populate("following");
+        Tweet.find({ user: id }, (err, tweets) => {
+          if (err) {
+            throw err;
+          }
+          res.render("users/:id", { tweets: tweets.reverse(), user: user });
+        })
+          .populate("comments")
+          .populate({ path: "comments", populate: { path: "user" } });
+      });
     }
   },
   Follow: (req, res) => {

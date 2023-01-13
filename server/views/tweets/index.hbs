@@ -23,7 +23,7 @@
             <div class="tweet-container">
                 {{#each tweets}}
                     <div class="tweet" id="tweet">
-                        <h3>{{this.user.username}}</h3>
+                        <a href="/users/{{this.user.id}}"><h3>{{this.user.username}}</h3></a>
                         <div class="tweet-content">
                             <p>
                               {{this.content}}
@@ -63,10 +63,7 @@
                                <b></b>
                                <span>{{this.createdAt}}</span>
                                <span>
-                                <form id="like-comment" action="/tweets/comments/{{this.id}}" method="post">
-                                <input class="button" type="submit" value="like">
-                                </form>
-                                <form id="comment-comment" action="/tweets/comments/{{this.id}}" method="post">
+                                <form id="like-comment" action="/tweets/comments/{{this.id}}" method="get">
                                 <input class="button" type="submit" value="like">
                                 </form>
                                  </span>

@@ -7,6 +7,7 @@ const TweetSchema = new mongoose.Schema(
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
     content: {
       type: String,
@@ -15,14 +16,7 @@ const TweetSchema = new mongoose.Schema(
     },
     tags: [String],
     likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
-    retweets: [{ type: Schema.Types.ObjectId, ref: "User" }],
     comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
-    photo: {
-      data: Buffer,
-      contentType: String,
-      code: String,
-      photoExists: Boolean,
-    },
   },
   { timestamps: true }
 );

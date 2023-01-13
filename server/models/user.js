@@ -15,8 +15,6 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.methods.checkPassword = function (userPassword) {
-  console.log(this.password);
-  console.log(userPassword);
   return this.password === userPassword;
 };
 
