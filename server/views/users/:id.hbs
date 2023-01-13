@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to Twitter</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <header><h1>Maniteams</h1></header>
+        <main>
+            <h3>{{this.user.username}}'s Profile</h3>
+            <div class="tweet-container">
+                {{#each tweets}}
+                    <div class="tweet" id="tweet">
+                        <a href="/users/{{this.user.id}}"><h3>{{this.user.username}}</h3></a>
+                        <div class="tweet-content">
+                            <p>
+                              {{this.content}}
+                            </p>
+                            <form class="create-comment" action="/tweets/comments/{{this._id}}" method="post">
+                                <input class='content' type="input-text" id="content" name="content" placeholder="Make a comment">
+                                <input class="button" type="submit" id="create-comment-button" value="submit">
+                                <input type="hidden" id="user" value={{user._id}} />
+                                </form>
+                            </div>
+                            
+                            <span class="date">{{this.createdAt}}</span>
+                            <div id="comments-container" style="display:none" class="comments-container">
+                                {{#each comments}}
+                            <div class="comment" id="comment">
+                               <a href="/users/{{this.user._id}}">{{this.user.username}}</a> 
+                               <b>
+
+                               </b>
+                               <p>{{this.content}}</p>
+                               <b></b>
+                               <span>{{this.createdAt}}</span>
+                               <span>
+                                <form id="like-comment" action="/tweets/comments/{{this.id}}" method="get">
+                                <input class="button" type="submit" value="like">
+                                </form>
+                                 </span>
+                            </div>
+                            {{/each}}
+
+                            </div>
+                            <script>
+                                function toggleComments() {
+                                    let containerStatus = document.getElementById('comments-container');
+                                    if (containerStatus.style.display === 'none')
+                                    {containerStatus.style.display = 'block'}
+                                    else {containerStatus.style.display = 'none'}
+                                };
+                            </script>
+                        <a href="/tweets/{{this.id}}"> load more comments</a>
+                        
+                        </div>
+                       
+                    
+                {{/each}}
+            </div>
+            </main>
+            </body>
+            </html>

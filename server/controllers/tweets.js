@@ -1,5 +1,6 @@
 const Tweet = require("../models/tweet");
 const Comment = require("../models/comment");
+const User = require("../models/user");
 const path = require("path");
 
 let appDir = path.dirname(require.main.filename);
@@ -40,17 +41,21 @@ const TweetsController = {
       res.status(201).redirect(req.get("referer"));
     });
   },
-  Like: (req, res) => {
+  Comment: (req, res) => {
     let session = req.session.user;
-    const id = req.params.id;
-    Tweet.findById(id, (err, tweet) => {
-      if (tweet.likes.includes(session._id)) {
-        return res.status(201).redirect(req.get("referer"));
-      }
+    let id = req.params.id;
+    const comment = new Comment(req.body);
+    comment.user = session._id;
+    comment.save((err) => {
       if (err) {
         throw err;
       }
-      tweet.likes.push(session._id);
+    });
+    Tweet.findById(id, (err, tweet) => {
+      if (err) {
+        throw err;
+      }
+      tweet.comments.push(comment._id);
       tweet.save((err) => {
         if (err) {
           throw err;
@@ -59,41 +64,19 @@ const TweetsController = {
       });
     });
   },
-  Comment: (req, res) => {
-    let session = req.session.user;
-    const id = req.params.id;
-    const comment = new Comment(req.body);
-    comment.user = session._id;
-    comment.save((err) => {
-      if (err) {
-        throw err;
-      }
-      Tweet.findById(id, (err, tweet) => {
-        if (err) {
-          throw err;
-        }
-        tweet.comments.push(comment._id);
-        tweet.save((err) => {
-          if (err) {
-            throw err;
-          }
-          res.status(201).redirect(req.get("referer"));
-        });
-      });
-    });
-  },
   View: (req, res) => {
     let session = req.session.user;
-    const id = req.params.id;
-    console.log(id);
+    let id = req.params.id;
     Tweet.findById(id, (err, tweet) => {
-      console.log(tweet);
       if (err) {
         throw err;
       }
-      res.render("tweets/:id", { user: session, tweet: tweet });
+      res.render("tweets/:id", {
+        user: session,
+        tweet: tweet,
+      });
     })
-      .populate("comments")
+      .populate("user")
       .populate({ path: "comments", populate: { path: "user" } });
   },
 };

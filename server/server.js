@@ -96,7 +96,7 @@ app.use("/users/index", sessionChecker, usersRouter);
 app.use("/tweets", sessionChecker, tweetsRouter);
 app.use("/tweets/:id", sessionChecker, tweetsRouter);
 app.use("/tweets/comments/:id", sessionChecker, tweetsRouter);
-
+app.use("/tweets/comments", sessionChecker, tweetsRouter);
 app.use("/sessions", sessionsRouter);
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}...`));

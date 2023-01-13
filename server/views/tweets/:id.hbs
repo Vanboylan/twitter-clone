@@ -14,34 +14,21 @@
         <header><h1>Maniteams</h1></header>
         <main>
            <div class="tweet" id="tweet">
-                        <h3>{{this.user.username}}</h3>
+                        <h3>{{this.tweet.user.username}}</h3>
                         <div class="tweet-content">
                             <p>
                               {{this.tweet.content}}
                             </p>
                             </div>
-                            <form class="create-comment" action="/tweets/comments/{{this._id}}" method="post">
+                            <form class="create-comment" action="/tweets/comments/{{this.tweet._id}}" method="post">
                                 <input class='content' type="input-text" id="content" name="content" placeholder="Make a comment">
                                 <input class="button" type="submit" id="create-comment-button" value="submit">
                                 <input type="hidden" id="user" value={{user._id}} />
                                 </form>
-                            
-                            
-                            <span class="date">{{this.createdAt}}</span>
-                            <div class="button-container">
-                             <div class="like-button">
-                            <form id="like-button" action="/tweets/{{this.id}}" method="post">
-                            <input class="button" type="submit" value="like">
-                            </form>
+                            <span class="date">{{this.tweet.createdAt}}</span>
                             </div>
-                            <div class="retweet-button">
-                                <form id="retweet-button" action="/tweets/retweet/{{this.id}}" method="post">
-                                <input class="button" type="submit" value="retweet">
-                                </form>
-
-                            </div>
-                            <div id="comments-container" style="display:none" class="comments-container">
-                                {{#each comments}}
+                            <div id="comments-container"  class="comments-container">
+                                {{#each this.tweet.comments}}
                             <div class="comment" id="comment">
                                <a href="/users/{{this.user._id}}">{{this.user.username}}</a> 
                                <b>
@@ -50,18 +37,9 @@
                                <p>{{this.content}}</p>
                                <b></b>
                                <span>{{this.createdAt}}</span>
-                               <span>
-                                <form id="like-comment" action="/tweets/comments/{{this.id}}" method="post">
-                                <input class="button" type="submit" value="like">
-                                </form>
-                                <form id="comment-comment" action="/tweets/comments/{{this.id}}" method="post">
-                                <input class="button" type="submit" value="like">
-                                </form>
-                                 </span>
                             </div>
                             {{/each}}
 
-                            </div>
                             </div>
         </main>
                 <script src="/index.js"></script>
